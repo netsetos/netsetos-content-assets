@@ -1,0 +1,50 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Working / source files (export to PNG/PDF before committing)
+*.psd
+*.ai
+*.fig
+*.sketch
+*.xd
+*.afdesign
+*.afphoto
+*.kra
+
+# Temporary
+*.tmp
+*.bak
+*~
+.~lock.*
+
+# Large build artifacts
+build/
+dist/
+*.zip
+node_modules/
+__pycache__/
+*.pyc
+
+# Local-only notes
+NOTES.local.md
+TODO.local.md
+.env
+.env.local
