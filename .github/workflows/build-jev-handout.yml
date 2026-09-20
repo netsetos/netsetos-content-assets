@@ -1,0 +1,44 @@
+name: Build Jev student handout
+
+on:
+  push:
+    paths:
+      - '2026-09-september/LI-Tanu_jev-refund-workflow-student-handout.tex'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX handout
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: 2026-09-september/LI-Tanu_jev-refund-workflow-student-handout.tex
+          work_in_root_file_dir: true
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: jev-refund-workflow-student-handout
+          path: 2026-09-september/LI-Tanu_jev-refund-workflow-student-handout.pdf
+          if-no-files-found: error
+
+      - name: Commit generated PDF
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add 2026-09-september/LI-Tanu_jev-refund-workflow-student-handout.pdf
+          if git diff --cached --quiet; then
+            echo 'PDF is already current.'
+            exit 0
+          fi
+          git commit -m 'Build Jev refund workflow student handout PDF'
+          git push
