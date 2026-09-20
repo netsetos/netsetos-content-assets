@@ -64,7 +64,7 @@
 
 \tikzset{
   flow/.style={rounded corners=3mm,draw=Line,line width=0.7pt,minimum height=20mm,text width=34mm,align=center,inner sep=3mm,font=\small},
-  compact/.style={rounded corners=2.5mm,draw=Line,line width=0.7pt,minimum height=15mm,text width=31mm,align=center,inner sep=2.5mm,font=\scriptsize},
+  compact/.style={rounded corners=2.5mm,draw=Line,line width=0.7pt,minimum height=17mm,text width=27mm,align=center,inner sep=2mm,font=\scriptsize},
   arrow/.style={-{Latex[length=3mm,width=2mm]},line width=1.1pt,draw=Navy},
   reviewarrow/.style={-{Latex[length=3mm,width=2mm]},line width=1pt,draw=Red,dashed}
 }
@@ -255,7 +255,7 @@ Selection rule & Measure quality, latency, cost, reliability, and operational fi
 \pageheading{Refund authorization flow}{CLASSIFY FIRST, AUTHORIZE WITH EVIDENCE}
 
 \begin{center}
-\begin{tikzpicture}[node distance=4.5mm]
+\begin{tikzpicture}[node distance=3.5mm]
   \node[compact,fill=PaleTeal] (intent) {\textbf{Refund intent identified?}};
   \node[compact,fill=Paper,right=of intent] (identity) {\textbf{Customer identity verified?}};
   \node[compact,fill=Paper,right=of identity] (txn) {\textbf{Order and payment records found?}};
